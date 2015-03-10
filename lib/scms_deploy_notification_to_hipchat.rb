@@ -6,5 +6,6 @@ PIVOTAL             = 'yellow'
 NEW_RELIC_RECOVERED = 'green'
 SCMS_PUSHING        = 'purple'
 
+# The message to be displayed should be passed in ARGV[0]:
 client = HipChat::Client.new(ENV['HIPCHAT_API_TOKEN'])
-client['Operations'].send('Jenkins', 'CMS about to be deployed to staging', :color => SCMS_PUSHING, :notify => true)
+client['Operations'].send('Jenkins', ARGV[0], :color => SCMS_PUSHING, :notify => true)
